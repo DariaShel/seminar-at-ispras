@@ -21,7 +21,7 @@ class BaseTFModel(ABC):
     def keras_model(self) -> tf.keras.Model:
         pass
 
-    def compute_grad_input(x: tf.Tensor, y_true: tf.Tensor) -> tf.Tensor:
+    def compute_grad_input(self, x: tf.Tensor, y_true: tf.Tensor) -> tf.Tensor:
         """Compute gradient of loss with respect to inputs.
 
         Hint: use GradientTape and sparse_categorical_crossentropy().
