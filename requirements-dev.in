@@ -1,2 +1,2 @@
 -c requirements.txt
-flake8-rst-docstrings
+flake8
