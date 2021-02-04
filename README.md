@@ -14,16 +14,17 @@ pip install pip-tools
 ### Install Python dependencies
 
 ```bash
-pip-sync
+pip-sync requirements.txt requirements-dev.txt
 ```
 
 ### Add more dependencies
 
 Add name of the package you need to `requirements.in` file, then compile
-`requirements.txt` and update your venv:
+`requirements.txt` files and update your venv:
 ```bash
-pip-compile -v -o requirements.txt
-pip-sync
+pip-compile -v
+pip-compile -v requirements-dev.in
+pip-sync requirements.txt requirements-dev.txt
 ```
 
 ### Get started
