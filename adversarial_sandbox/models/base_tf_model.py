@@ -28,7 +28,7 @@ class BaseTFModel(ABC):
 
         Args:
             x: a batch of input images, shape (batch_size, 224, 224, 3)
-            y: ground truth class indices, shape (batch_size,)
+            y_true: ground truth class indices, shape (batch_size,)
 
         Returns:
             Gradients tensor, shape (batch_size, 224, 224, 3)
