@@ -36,8 +36,6 @@ h5py==2.10.0
     # via tensorflow
 idna==2.10
     # via requests
-importlib-metadata==3.4.0
-    # via markdown
 keras-preprocessing==1.1.2
     # via tensorflow
 markdown==3.3.3
@@ -94,9 +92,7 @@ tensorflow==2.4.1
 termcolor==1.1.0
     # via tensorflow
 typing-extensions==3.7.4.3
-    # via
-    #   importlib-metadata
-    #   tensorflow
+    # via tensorflow
 urllib3==1.26.3
     # via requests
 werkzeug==1.0.1
@@ -108,8 +104,6 @@ wheel==0.36.2
     #   tensorflow
 wrapt==1.12.1
     # via tensorflow
-zipp==3.4.0
-    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

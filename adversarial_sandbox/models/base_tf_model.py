@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 import tensorflow as tf
+from tensorflow.python.keras import losses
 
 
 class BaseTFModel(ABC):
@@ -22,6 +23,10 @@ class BaseTFModel(ABC):
         pass
 
     def compute_grad_input(self, x: tf.Tensor, y_true: tf.Tensor) -> tf.Tensor:
+        with GradientTape as tape:
+            y_pred = keras_model(x)
+            self.loss = tf.keras.losses.sparse_categorical_crossentropy(y_true, y_pred)
+
         """Compute gradient of loss with respect to inputs.
 
         Hint: use GradientTape and sparse_categorical_crossentropy().
