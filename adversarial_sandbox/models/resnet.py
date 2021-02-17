@@ -15,7 +15,7 @@ class ResNet50Model(BaseTFModel):
         tf.keras.applications provides a preprocessing method for its ResNet50
         model, please use it here.
         """
-        super(ResNet50Model, self).__init__()
+        super().__init__()
         # TODO (DariaShel): implement model
         self.model = Sequential()
         self.model.add(ResNet50())
