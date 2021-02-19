@@ -2,6 +2,7 @@ import tensorflow as tf
 from PIL import Image, ImageDraw 
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
+import numpy as np
 
 pretrained_model = tf.keras.applications.ResNet50()
 pretrained_model.trainable = False
@@ -9,9 +10,9 @@ pretrained_model.trainable = False
 decode_predictions = tf.keras.applications.resnet50.decode_predictions
 
 def preprocess(image):
-    #redo using PIL
-    image = tf.cast(image, tf.float32)
-    image = tf.image.resize(image, (224, 224))
+    image = image.resize((224, 224))
+    image = np.float32(np.asarray(image))
+    image = tf.convert_to_tensor(image, dtype=tf.float32)
     image = tf.keras.applications.resnet50.preprocess_input(image)
     image = image[None, ...]
     return image
@@ -40,8 +41,10 @@ label = tf.reshape(label, (1, image_probs.shape[-1]))
 
 perturbations = create_adversarial_pattern(image, label)
 
-adv_x = image + 0.1 * perturbations
+adv_x = image + 0. * perturbations
 adv_x = tf.clip_by_value(adv_x, -1, 1)
 
+adv_x = tf.reshape(adv_x, [224, 224, 3])
+plt.figure()
 plt.imshow(adv_x)
 plt.show()
